@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { 
   Crown, 
@@ -78,10 +79,14 @@ const getIcon = (iconName: string) => {
 };
 
 export default function HomePage() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const containerRef = useRef<HTMLDivElement>(null);
   const revealImgRef = useRef<HTMLDivElement>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const isExpandedRef = useRef(false);
   const navRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -106,12 +111,14 @@ export default function HomePage() {
   const toggleMenu = () => {
     const tl = tlRef.current;
     if (!tl) return;
-    if (!isExpanded) {
+    if (!isExpandedRef.current) {
       setIsHamburgerOpen(true);
       setIsExpanded(true);
+      isExpandedRef.current = true;
       tl.play(0);
     } else {
       setIsHamburgerOpen(false);
+      isExpandedRef.current = false;
       tl.eventCallback('onReverseComplete', () => setIsExpanded(false));
       tl.reverse();
     }
@@ -146,7 +153,7 @@ export default function HomePage() {
 
     const handleResize = () => {
       if (!tlRef.current) return;
-      if (isExpanded) {
+      if (isExpandedRef.current) {
         gsap.set(navEl, { height: calculateHeight() });
       } else {
         gsap.set(navEl, { height: window.matchMedia('(max-width: 768px)').matches ? 70 : 80 });
@@ -160,7 +167,7 @@ export default function HomePage() {
       tlRef.current = null;
       window.removeEventListener('resize', handleResize);
     };
-  }, [isExpanded]);
+  }, []);
 
   // Setup scroll trigger reveal animations
   useEffect(() => {
