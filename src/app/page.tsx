@@ -440,13 +440,14 @@ export default function HomePage() {
 
                 {/* Right Portrait & Floating Status Card Column */}
                 <div>
-                  <div className="about-portrait-card" style={{ position: "relative" }}>
+                  <div className="about-portrait-card" style={{ position: "relative", width: "100%", height: "480px", minHeight: "480px", borderRadius: "32px", overflow: "hidden" }}>
                     <Image 
                       src="/assets/images/profile.jpg" 
                       alt="Nivrutti Dandekar" 
                       fill 
-                      sizes="(max-width: 1024px) 100vw, 400px"
+                      sizes="(max-width: 1024px) 100vw, 450px"
                       className="about-portrait-img"
+                      style={{ objectFit: "cover", objectPosition: "center 20%" }}
                       priority
                     />
                     <div className="about-portrait-overlay">
@@ -618,15 +619,15 @@ export default function HomePage() {
                   <span className="skill-card-subtitle" style={{ color: "#c084fc" }}>My Daily Drivers</span>
                   <div className="tools-grid-icons">
                     <div className="tool-brand-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="tool-brand-icon" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
                       <span className="tool-brand-name">Figma</span>
                     </div>
                     <div className="tool-brand-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" className="tool-brand-icon" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
                       <span className="tool-brand-name">Illustrator</span>
                     </div>
                     <div className="tool-brand-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" className="tool-brand-icon" />
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
                       <span className="tool-brand-name">Photoshop</span>
                     </div>
                     <div className="tool-brand-item">
@@ -704,7 +705,7 @@ export default function HomePage() {
             <div className="work-bento-layout reveal-up-sec">
               {/* Bento 1: Cranial Space */}
               <Link href="/projects/cranial-space" className="work-bento-card w-bento-8 group">
-                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
+                <div className="work-card-img-wrapper" style={{ position: "relative", width: "100%", height: "100%", minHeight: "340px", overflow: "hidden" }}>
                   <Image 
                     src="/assets/images/projects/cranial-center.png" 
                     alt="Cranial Space" 
@@ -728,7 +729,7 @@ export default function HomePage() {
 
               {/* Bento 2: HotSpot Mobile */}
               <Link href="/projects/hotspot-mobile" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
+                <div className="work-card-img-wrapper" style={{ position: "relative", width: "100%", height: "100%", minHeight: "340px", overflow: "hidden" }}>
                   <Image 
                     src="/assets/images/projects/hotspot-mobile.png" 
                     alt="HotSpot Mobile" 
@@ -751,7 +752,7 @@ export default function HomePage() {
 
               {/* Bento 3: FAMA Agriculture */}
               <Link href="/projects/fama-agriculture" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
+                <div className="work-card-img-wrapper" style={{ position: "relative", width: "100%", height: "100%", minHeight: "340px", overflow: "hidden" }}>
                   <Image 
                     src="/assets/images/projects/fama-center.png" 
                     alt="FAMA Agriculture" 
@@ -774,7 +775,7 @@ export default function HomePage() {
 
               {/* Bento 4: Bombay Spices */}
               <Link href="/projects/bombay-spices" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
+                <div className="work-card-img-wrapper" style={{ position: "relative", width: "100%", height: "100%", minHeight: "340px", overflow: "hidden" }}>
                   <Image 
                     src="/assets/images/projects/bombay-spices.png" 
                     alt="Bombay Spices" 
@@ -797,7 +798,7 @@ export default function HomePage() {
 
               {/* Bento 5: Happihosts */}
               <Link href="/projects/happihosts" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
+                <div className="work-card-img-wrapper" style={{ position: "relative", width: "100%", height: "100%", minHeight: "340px", overflow: "hidden" }}>
                   <Image 
                     src="/assets/images/projects/happihosts-cover.png" 
                     alt="Happihosts" 
