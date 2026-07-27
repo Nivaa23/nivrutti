@@ -2337,6 +2337,8 @@ nav {
   user-select: none;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
 .nav-card-label {
   font-weight: 600;
   font-size: 18px;
