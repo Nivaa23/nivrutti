@@ -440,7 +440,7 @@ export default function HomePage() {
 
                 {/* Right Portrait & Floating Status Card Column */}
                 <div>
-                  <div className="about-portrait-card">
+                  <div className="about-portrait-card" style={{ position: "relative" }}>
                     <Image 
                       src="/assets/images/profile.jpg" 
                       alt="Nivrutti Dandekar" 
@@ -704,7 +704,7 @@ export default function HomePage() {
             <div className="work-bento-layout reveal-up-sec">
               {/* Bento 1: Cranial Space */}
               <Link href="/projects/cranial-space" className="work-bento-card w-bento-8 group">
-                <div className="work-card-img-wrapper">
+                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
                   <Image 
                     src="/assets/images/projects/cranial-center.png" 
                     alt="Cranial Space" 
@@ -728,7 +728,7 @@ export default function HomePage() {
 
               {/* Bento 2: HotSpot Mobile */}
               <Link href="/projects/hotspot-mobile" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper">
+                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
                   <Image 
                     src="/assets/images/projects/hotspot-mobile.png" 
                     alt="HotSpot Mobile" 
@@ -751,7 +751,7 @@ export default function HomePage() {
 
               {/* Bento 3: FAMA Agriculture */}
               <Link href="/projects/fama-agriculture" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper">
+                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
                   <Image 
                     src="/assets/images/projects/fama-center.png" 
                     alt="FAMA Agriculture" 
@@ -774,7 +774,7 @@ export default function HomePage() {
 
               {/* Bento 4: Bombay Spices */}
               <Link href="/projects/bombay-spices" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper">
+                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
                   <Image 
                     src="/assets/images/projects/bombay-spices.png" 
                     alt="Bombay Spices" 
@@ -797,7 +797,7 @@ export default function HomePage() {
 
               {/* Bento 5: Happihosts */}
               <Link href="/projects/happihosts" className="work-bento-card w-bento-4 group">
-                <div className="work-card-img-wrapper">
+                <div className="work-card-img-wrapper" style={{ position: "relative" }}>
                   <Image 
                     src="/assets/images/projects/happihosts-cover.png" 
                     alt="Happihosts" 
