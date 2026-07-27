@@ -388,9 +388,9 @@ export default function HomePage() {
         <section id="about" className="about-redesign-wrapper">
           <div className="container">
             <div className="about-redesign-card reveal-up-sec">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="about-grid-container">
                 {/* Left Text & Story Cards Column */}
-                <div className="lg:col-span-7">
+                <div>
                   <div className="about-header-pill">
                     <Sparkles size={14} /> About Me
                   </div>
@@ -439,13 +439,13 @@ export default function HomePage() {
                 </div>
 
                 {/* Right Portrait & Floating Status Card Column */}
-                <div className="lg:col-span-5 h-full">
+                <div>
                   <div className="about-portrait-card">
                     <Image 
                       src="/assets/images/profile.jpg" 
                       alt="Nivrutti Dandekar" 
                       fill 
-                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      sizes="(max-width: 1024px) 100vw, 400px"
                       className="about-portrait-img"
                       priority
                     />
@@ -576,14 +576,14 @@ export default function HomePage() {
         <section id="skills" className="skills-redesign-section">
           <div className="skills-bg-glow" />
           <div className="container" style={{ position: "relative", zIndex: 5 }}>
-            <div className="text-center max-w-2xl mx-auto reveal-up-sec">
+            <div className="skills-header-block reveal-up-sec">
               <span className="about-header-pill">
                 <Zap size={14} /> EXPERTISE &amp; TOOLKIT
               </span>
-              <h2 className="text-4xl font-bold mt-3 mb-4 text-white">
+              <h2 className="skills-title">
                 Creative Toolkit &amp; Mastery
               </h2>
-              <p className="text-slate-400 text-lg">
+              <p className="skills-subtitle-text">
                 A look at my design and technical toolkit, workflow drivers, and core methodologies.
               </p>
             </div>
@@ -630,19 +630,19 @@ export default function HomePage() {
                       <span className="tool-brand-name">Photoshop</span>
                     </div>
                     <div className="tool-brand-item">
-                      <BookOpen size={18} className="text-indigo-400" />
+                      <BookOpen size={18} style={{ color: "#818cf8" }} />
                       <span className="tool-brand-name">Notion</span>
                     </div>
                     <div className="tool-brand-item">
-                      <Zap size={18} className="text-emerald-400" />
+                      <Zap size={18} style={{ color: "#34d399" }} />
                       <span className="tool-brand-name">Antigravity</span>
                     </div>
                     <div className="tool-brand-item">
-                      <Bot size={18} className="text-rose-400" />
+                      <Bot size={18} style={{ color: "#fb7185" }} />
                       <span className="tool-brand-name">Gemini / GPT</span>
                     </div>
                     <div className="tool-brand-item" style={{ gridColumn: "span 2" }}>
-                      <Heart size={18} className="text-purple-400" />
+                      <Heart size={18} style={{ color: "#c084fc" }} />
                       <span className="tool-brand-name">Lovable Prototyping</span>
                     </div>
                   </div>
@@ -657,22 +657,22 @@ export default function HomePage() {
                   </div>
                   <h3 className="skill-card-title">Additional Strengths</h3>
                   <span className="skill-card-subtitle" style={{ color: "#34d399" }}>Beyond the Pixels</span>
-                  <div className="flex flex-col gap-3 mt-2">
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
-                      <Compass size={18} className="text-emerald-400 shrink-0" />
-                      <span className="text-sm font-medium text-slate-200">Human-Centered Design Thinking</span>
+                  <div className="strength-list-wrapper">
+                    <div className="strength-item-row">
+                      <Compass size={18} style={{ color: "#34d399" }} />
+                      <span>Human-Centered Design Thinking</span>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
-                      <Eye size={18} className="text-cyan-400 shrink-0" />
-                      <span className="text-sm font-medium text-slate-200">Accessibility (WCAG AA)</span>
+                    <div className="strength-item-row">
+                      <Eye size={18} style={{ color: "#38bdf8" }} />
+                      <span>Accessibility (WCAG AA)</span>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
-                      <Activity size={18} className="text-purple-400 shrink-0" />
-                      <span className="text-sm font-medium text-slate-200">Motion &amp; Micro-Interactions</span>
+                    <div className="strength-item-row">
+                      <Activity size={18} style={{ color: "#c084fc" }} />
+                      <span>Motion &amp; Micro-Interactions</span>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
-                      <FastForward size={18} className="text-blue-400 shrink-0" />
-                      <span className="text-sm font-medium text-slate-200">Rapid Prototyping &amp; Iteration</span>
+                    <div className="strength-item-row">
+                      <FastForward size={18} style={{ color: "#60a5fa" }} />
+                      <span>Rapid Prototyping &amp; Iteration</span>
                     </div>
                   </div>
                 </div>
@@ -689,14 +689,14 @@ export default function HomePage() {
                 <span className="about-header-pill">
                   <Award size={14} /> FEATURED WORK
                 </span>
-                <h2 className="text-4xl font-bold text-slate-900 mt-2">
+                <h2 className="work-header-title">
                   Work Highlights
                 </h2>
-                <p className="text-slate-600 text-base mt-2">
+                <p className="work-header-sub">
                   A curated selection of my best design projects &amp; case studies
                 </p>
               </div>
-              <Link href="/projects" className="btn btn-secondary flex items-center gap-2">
+              <Link href="/projects" className="btn btn-secondary" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
                 View All Projects <ArrowUpRight size={18} />
               </Link>
             </div>
