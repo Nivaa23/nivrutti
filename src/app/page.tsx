@@ -28,7 +28,13 @@ import {
   Compass,
   Eye,
   Activity,
-  FastForward
+  FastForward,
+  Sparkles,
+  CheckCircle2,
+  Copy,
+  Check,
+  Globe,
+  ArrowRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
@@ -86,6 +92,7 @@ export default function HomePage() {
   const revealImgRef = useRef<HTMLDivElement>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
   const isExpandedRef = useRef(false);
   const navRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -377,37 +384,84 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* About Section */}
-        <section id="about" className="about-section container">
-          <span className="section-label reveal-up-sec">About Me</span>
-          <div className="about-content">
-            <div className="about-text reveal-up-sec">
-              <h2>Designing with Purpose and Empathy</h2>
-              <p className="body">
-                My journey into UI/UX Design began with a deep curiosity about how people interact with
-                digital products. I’m passionate about designing experiences that feel intuitive, meaningful and effortless
-                for users.
-              </p>
-              <p className="body">
-                Currently pursuing my Bachelors degree, I complement my academic learning with hands-on
-                project experience, focusing on solving real problems through thoughtful and user-centered design. I enjoy
-                balancing aesthetics with functionality to create interfaces that are both visually engaging and highly
-                usable.
-              </p>
-              <p className="body">
-                Outside of design, I draw inspiration from modern architecture, travel and Formula One;
-                interests that shape the way I think about structure, precision and experience design.
-              </p>
-            </div>
-            <div className="about-image reveal-up-sec">
-              <Image 
-                src="/assets/images/profile.jpg" 
-                alt="Nivrutti Dandekar" 
-                fill 
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="about-profile-img"
-                priority
-              />
+        {/* Redesigned About Section */}
+        <section id="about" className="about-redesign-wrapper">
+          <div className="container">
+            <div className="about-redesign-card reveal-up-sec">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                {/* Left Text & Story Cards Column */}
+                <div className="lg:col-span-7">
+                  <div className="about-header-pill">
+                    <Sparkles size={14} /> About Me
+                  </div>
+                  <h2 className="about-headline">
+                    Designing with Purpose <span className="about-gradient-text">&amp; Empathy</span>
+                  </h2>
+
+                  <div className="about-story-grid">
+                    <div className="about-story-item">
+                      <div className="about-story-num">01 / The Journey</div>
+                      <h3 className="about-story-title">Curiosity &amp; Digital Interaction</h3>
+                      <p className="about-story-desc">
+                        My journey into UI/UX Design began with a deep curiosity about how people interact with
+                        digital products. I’m passionate about designing experiences that feel intuitive, meaningful and effortless
+                        for users.
+                      </p>
+                    </div>
+
+                    <div className="about-story-item">
+                      <div className="about-story-num">02 / The Craft</div>
+                      <h3 className="about-story-title">Thoughtful &amp; User-Centered Design</h3>
+                      <p className="about-story-desc">
+                        Currently pursuing my Bachelors degree, I complement my academic learning with hands-on
+                        project experience, focusing on solving real problems through thoughtful and user-centered design. I enjoy
+                        balancing aesthetics with functionality to create interfaces that are both visually engaging and highly usable.
+                      </p>
+                    </div>
+
+                    <div className="about-story-item">
+                      <div className="about-story-num">03 / The Inspiration</div>
+                      <h3 className="about-story-title">Precision, Structure &amp; Experience</h3>
+                      <p className="about-story-desc">
+                        Outside of design, I draw inspiration from modern architecture, travel and Formula One;
+                        interests that shape the way I think about structure, precision and experience design.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="about-pills-bar">
+                    <span className="about-tag-badge">🎯 User-Centered</span>
+                    <span className="about-tag-badge">🏎️ F1 Precision</span>
+                    <span className="about-tag-badge">🏛️ Architecture Mindset</span>
+                    <span className="about-tag-badge">⚡ WCAG AA Accessible</span>
+                    <span className="about-tag-badge">✨ Motion &amp; Micro-Interactions</span>
+                  </div>
+                </div>
+
+                {/* Right Portrait & Floating Status Card Column */}
+                <div className="lg:col-span-5 h-full">
+                  <div className="about-portrait-card">
+                    <Image 
+                      src="/assets/images/profile.jpg" 
+                      alt="Nivrutti Dandekar" 
+                      fill 
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="about-portrait-img"
+                      priority
+                    />
+                    <div className="about-portrait-overlay">
+                      <div className="status-badge-live">
+                        <span className="status-pulse-dot" />
+                        <span>Open to Opportunities</span>
+                      </div>
+                      <div className="portrait-info-box">
+                        <h3 className="portrait-name">Nivrutti Dandekar</h3>
+                        <p className="portrait-role">UI/UX Specialist &amp; Product Designer</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -518,193 +572,304 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section id="skills" className="skills-section">
-          <div className="container">
-            <div className="skills-header reveal-up-sec">
-              <h2>Expertise & Creative Toolkit</h2>
-              <p className="body">A look at my design and technical toolkit.</p>
+        {/* Redesigned Skills Section */}
+        <section id="skills" className="skills-redesign-section">
+          <div className="skills-bg-glow" />
+          <div className="container" style={{ position: "relative", zIndex: 5 }}>
+            <div className="text-center max-w-2xl mx-auto reveal-up-sec">
+              <span className="about-header-pill">
+                <Zap size={14} /> EXPERTISE &amp; TOOLKIT
+              </span>
+              <h2 className="text-4xl font-bold mt-3 mb-4 text-white">
+                Creative Toolkit &amp; Mastery
+              </h2>
+              <p className="text-slate-400 text-lg">
+                A look at my design and technical toolkit, workflow drivers, and core methodologies.
+              </p>
             </div>
 
-            <div className="skills-grid">
+            <div className="skills-bento-grid">
               {/* Card 1 */}
-              <div className="skill-card reveal-up-sec">
-                <h3>Core Skills</h3>
-                <span className="subtitle">Design & Strategy</span>
-                <ul className="skill-list body">
-                  <li>UI/UX Design</li>
-                  <li>User Research & Usability Testing</li>
-                  <li>Wireframing & Prototyping</li>
-                  <li>Interaction & Information Architecture</li>
-                  <li>Design Systems & Visual Design</li>
-                  <li>Responsive & Mobile-first Design</li>
-                </ul>
+              <div className="skill-bento-card reveal-up-sec">
+                <div>
+                  <div className="skill-card-icon-badge">
+                    <Palette size={24} />
+                  </div>
+                  <h3 className="skill-card-title">Core Skills</h3>
+                  <span className="skill-card-subtitle">Design &amp; Strategy</span>
+                  <div className="skill-chip-container">
+                    <span className="skill-interactive-chip"><Layers size={14} /> UI/UX Design</span>
+                    <span className="skill-interactive-chip"><Search size={14} /> User Research &amp; Usability</span>
+                    <span className="skill-interactive-chip"><GitCommit size={14} /> Wireframing &amp; Prototyping</span>
+                    <span className="skill-interactive-chip"><Network size={14} /> Interaction Architecture</span>
+                    <span className="skill-interactive-chip"><Palette size={14} /> Design Systems &amp; Visuals</span>
+                    <span className="skill-interactive-chip"><Smartphone size={14} /> Responsive &amp; Mobile-First</span>
+                  </div>
+                </div>
               </div>
 
               {/* Card 2 */}
-              <div className="skill-card reveal-up-sec">
-                <h3>Tools & Software</h3>
-                <span className="subtitle">My Daily Drivers</span>
-                <ul className="skill-list body">
-                  <li>Figma</li>
-                  <li>Adobe Illustrator</li>
-                  <li>Adobe Photoshop</li>
-                  <li>Notion</li>
-                  <li>Antigravity</li>
-                  <li>ChatGPT / Gemini</li>
-                  <li>Lovable</li>
-                </ul>
-                <div className="skill-logos">
-                  <img 
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" 
-                    alt="Figma"
-                    className="skill-logo"
-                  />
-                  <img 
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg"
-                    alt="Illustrator" 
-                    className="skill-logo"
-                  />
-                  <img 
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"
-                    alt="Photoshop" 
-                    className="skill-logo"
-                  />
+              <div className="skill-bento-card reveal-up-sec">
+                <div>
+                  <div className="skill-card-icon-badge" style={{ color: "#a855f7", background: "rgba(168, 85, 247, 0.12)", borderColor: "rgba(168, 85, 247, 0.3)" }}>
+                    <PenTool size={24} />
+                  </div>
+                  <h3 className="skill-card-title">Tools &amp; Software</h3>
+                  <span className="skill-card-subtitle" style={{ color: "#c084fc" }}>My Daily Drivers</span>
+                  <div className="tools-grid-icons">
+                    <div className="tool-brand-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="tool-brand-icon" />
+                      <span className="tool-brand-name">Figma</span>
+                    </div>
+                    <div className="tool-brand-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" className="tool-brand-icon" />
+                      <span className="tool-brand-name">Illustrator</span>
+                    </div>
+                    <div className="tool-brand-item">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" className="tool-brand-icon" />
+                      <span className="tool-brand-name">Photoshop</span>
+                    </div>
+                    <div className="tool-brand-item">
+                      <BookOpen size={18} className="text-indigo-400" />
+                      <span className="tool-brand-name">Notion</span>
+                    </div>
+                    <div className="tool-brand-item">
+                      <Zap size={18} className="text-emerald-400" />
+                      <span className="tool-brand-name">Antigravity</span>
+                    </div>
+                    <div className="tool-brand-item">
+                      <Bot size={18} className="text-rose-400" />
+                      <span className="tool-brand-name">Gemini / GPT</span>
+                    </div>
+                    <div className="tool-brand-item" style={{ gridColumn: "span 2" }}>
+                      <Heart size={18} className="text-purple-400" />
+                      <span className="tool-brand-name">Lovable Prototyping</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Card 3 */}
-              <div className="skill-card reveal-up-sec">
-                <h3>Additional Strengths</h3>
-                <span className="subtitle">Beyond the Pixels</span>
-                <ul className="skill-list body">
-                  <li>Human-Centered Design Thinking</li>
-                  <li>Accessibility (WCAG AA)</li>
-                  <li>Motion & Micro-Interactions</li>
-                  <li>Rapid Prototyping & Iteration</li>
-                </ul>
+              <div className="skill-bento-card reveal-up-sec">
+                <div>
+                  <div className="skill-card-icon-badge" style={{ color: "#34d399", background: "rgba(52, 211, 153, 0.12)", borderColor: "rgba(52, 211, 153, 0.3)" }}>
+                    <Sparkles size={24} />
+                  </div>
+                  <h3 className="skill-card-title">Additional Strengths</h3>
+                  <span className="skill-card-subtitle" style={{ color: "#34d399" }}>Beyond the Pixels</span>
+                  <div className="flex flex-col gap-3 mt-2">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                      <Compass size={18} className="text-emerald-400 shrink-0" />
+                      <span className="text-sm font-medium text-slate-200">Human-Centered Design Thinking</span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                      <Eye size={18} className="text-cyan-400 shrink-0" />
+                      <span className="text-sm font-medium text-slate-200">Accessibility (WCAG AA)</span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                      <Activity size={18} className="text-purple-400 shrink-0" />
+                      <span className="text-sm font-medium text-slate-200">Motion &amp; Micro-Interactions</span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                      <FastForward size={18} className="text-blue-400 shrink-0" />
+                      <span className="text-sm font-medium text-slate-200">Rapid Prototyping &amp; Iteration</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Work Highlights Section */}
-        <section id="projects" className="container">
-          <div className="projects-header reveal-up-sec">
-            <div className="projects-header-left">
-              <h2>Work Highlights</h2>
-              <p className="body">A curated selection of my best design projects</p>
+        {/* Redesigned Work Highlights Section */}
+        <section id="projects" className="work-redesign-section">
+          <div className="container">
+            <div className="work-header-flex reveal-up-sec">
+              <div>
+                <span className="about-header-pill">
+                  <Award size={14} /> FEATURED WORK
+                </span>
+                <h2 className="text-4xl font-bold text-slate-900 mt-2">
+                  Work Highlights
+                </h2>
+                <p className="text-slate-600 text-base mt-2">
+                  A curated selection of my best design projects &amp; case studies
+                </p>
+              </div>
+              <Link href="/projects" className="btn btn-secondary flex items-center gap-2">
+                View All Projects <ArrowUpRight size={18} />
+              </Link>
             </div>
-            <Link href="/projects" className="btn btn-secondary">
-              View All Projects <ArrowUpRight size={18} />
-            </Link>
-          </div>
 
-          <div className="bento-grid reveal-up-sec">
-            {/* Main Highlight */}
-            <Link href="/projects/cranial-space" className="project-card bento-1">
-              <Image 
-                src="/assets/images/projects/cranial-center.png" 
-                alt="Cranial Space" 
-                fill
-                sizes="(max-width: 768px) 100vw, 66vw"
-                className="project-card-image"
-              />
-              <div className="project-card-info">
-                <h3>Cranial Space</h3>
-                <div className="project-type-pills">
-                  <span className="type-pill">Platform</span>
-                  <span className="type-pill">Web App</span>
+            <div className="work-bento-layout reveal-up-sec">
+              {/* Bento 1: Cranial Space */}
+              <Link href="/projects/cranial-space" className="work-bento-card w-bento-8 group">
+                <div className="work-card-img-wrapper">
+                  <Image 
+                    src="/assets/images/projects/cranial-center.png" 
+                    alt="Cranial Space" 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    className="work-card-img"
+                  />
+                  <div className="work-arrow-circle">
+                    <ArrowUpRight size={20} />
+                  </div>
+                  <div className="work-card-overlay-gradient">
+                    <h3 className="work-card-title">Cranial Space</h3>
+                    <div className="work-pills-row">
+                      <span className="work-tag-pill">Platform</span>
+                      <span className="work-tag-pill">Web App</span>
+                      <span className="work-tag-pill">Featured Case</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link href="/projects/hotspot-mobile" className="project-card bento-2">
-              <Image 
-                src="/assets/images/projects/hotspot-mobile.png" 
-                alt="HotSpot Mobile" 
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="project-card-image"
-              />
-              <div className="project-card-info">
-                <h3>HotSpot Mobile</h3>
-                <div className="project-type-pills">
-                  <span className="type-pill">Social</span>
-                  <span className="type-pill">Mobile App</span>
+              {/* Bento 2: HotSpot Mobile */}
+              <Link href="/projects/hotspot-mobile" className="work-bento-card w-bento-4 group">
+                <div className="work-card-img-wrapper">
+                  <Image 
+                    src="/assets/images/projects/hotspot-mobile.png" 
+                    alt="HotSpot Mobile" 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="work-card-img"
+                  />
+                  <div className="work-arrow-circle">
+                    <ArrowUpRight size={20} />
+                  </div>
+                  <div className="work-card-overlay-gradient">
+                    <h3 className="work-card-title">HotSpot Mobile</h3>
+                    <div className="work-pills-row">
+                      <span className="work-tag-pill">Social</span>
+                      <span className="work-tag-pill">Mobile App</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link href="/projects/fama-agriculture" className="project-card bento-3">
-              <Image 
-                src="/assets/images/projects/fama-center.png" 
-                alt="FAMA Agriculture" 
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="project-card-image"
-              />
-              <div className="project-card-info">
-                <h3>FAMA Agriculture</h3>
-                <div className="project-type-pills">
-                  <span className="type-pill">Agrotech</span>
-                  <span className="type-pill">Web App</span>
+              {/* Bento 3: FAMA Agriculture */}
+              <Link href="/projects/fama-agriculture" className="work-bento-card w-bento-4 group">
+                <div className="work-card-img-wrapper">
+                  <Image 
+                    src="/assets/images/projects/fama-center.png" 
+                    alt="FAMA Agriculture" 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="work-card-img"
+                  />
+                  <div className="work-arrow-circle">
+                    <ArrowUpRight size={20} />
+                  </div>
+                  <div className="work-card-overlay-gradient">
+                    <h3 className="work-card-title">FAMA Agriculture</h3>
+                    <div className="work-pills-row">
+                      <span className="work-tag-pill">Agrotech</span>
+                      <span className="work-tag-pill">Web App</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link href="/projects/bombay-spices" className="project-card bento-4">
-              <Image 
-                src="/assets/images/projects/bombay-spices.png" 
-                alt="Bombay Spices" 
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="project-card-image"
-              />
-              <div className="project-card-info">
-                <h3>Bombay Spices</h3>
-                <div className="project-type-pills">
-                  <span className="type-pill">Dashboard</span>
-                  <span className="type-pill">Web App</span>
+              {/* Bento 4: Bombay Spices */}
+              <Link href="/projects/bombay-spices" className="work-bento-card w-bento-4 group">
+                <div className="work-card-img-wrapper">
+                  <Image 
+                    src="/assets/images/projects/bombay-spices.png" 
+                    alt="Bombay Spices" 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="work-card-img"
+                  />
+                  <div className="work-arrow-circle">
+                    <ArrowUpRight size={20} />
+                  </div>
+                  <div className="work-card-overlay-gradient">
+                    <h3 className="work-card-title">Bombay Spices</h3>
+                    <div className="work-pills-row">
+                      <span className="work-tag-pill">Dashboard</span>
+                      <span className="work-tag-pill">Web App</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            <Link href="/projects/happihosts" className="project-card bento-5">
-              <Image 
-                src="/assets/images/projects/happihosts-cover.png" 
-                alt="Happihosts" 
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="project-card-image"
-              />
-              <div className="project-card-info">
-                <h3>Happihosts</h3>
-                <div className="project-type-pills">
-                  <span className="type-pill">Event Management</span>
-                  <span className="type-pill">Web App</span>
+              {/* Bento 5: Happihosts */}
+              <Link href="/projects/happihosts" className="work-bento-card w-bento-4 group">
+                <div className="work-card-img-wrapper">
+                  <Image 
+                    src="/assets/images/projects/happihosts-cover.png" 
+                    alt="Happihosts" 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="work-card-img"
+                  />
+                  <div className="work-arrow-circle">
+                    <ArrowUpRight size={20} />
+                  </div>
+                  <div className="work-card-overlay-gradient">
+                    <h3 className="work-card-title">Happihosts</h3>
+                    <div className="work-pills-row">
+                      <span className="work-tag-pill">Event Management</span>
+                      <span className="work-tag-pill">Web App</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Footer CTA Section */}
-        <section id="contact" className="footer-cta container">
-          <div className="reveal-up-sec">
-            <h2>Let’s create something amazing together</h2>
-            <p className="body-large">
-              I’m currently available for freelance projects and open to discussing new opportunities.
-              Feel free to reach out if you want to collaborate!
-            </p>
-            <a 
-              href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/" 
-              className="btn btn-primary" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Say Hello <MessageCircle size={18} />
-            </a>
+        {/* Redesigned Contact / Footer CTA Section */}
+        <section id="contact" className="cta-redesign-wrapper">
+          <div className="cta-glow-bg" />
+          <div className="container">
+            <div className="cta-redesign-box reveal-up-sec">
+              <span className="about-header-pill" style={{ background: "rgba(255, 255, 255, 0.08)", borderColor: "rgba(255, 255, 255, 0.2)", color: "#75C5DE" }}>
+                <MessageCircle size={14} /> GET IN TOUCH
+              </span>
+              <h2 className="cta-redesign-headline">
+                Let’s create something <span className="about-gradient-text">amazing together</span>
+              </h2>
+              <p className="cta-redesign-sub">
+                I’m currently available for freelance projects and open to discussing new opportunities.
+                Feel free to reach out if you want to collaborate!
+              </p>
+
+              <div className="cta-actions-group">
+                <a 
+                  href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/" 
+                  className="btn btn-primary flex items-center gap-3 text-lg py-4 px-8" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ background: "#75C5DE", color: "#0f172a", borderRadius: "9999px" }}
+                >
+                  Say Hello <MessageCircle size={20} />
+                </a>
+
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText("nivrutti.dandekar@gmail.com");
+                    setCopiedEmail(true);
+                    setTimeout(() => setCopiedEmail(false), 3000);
+                  }}
+                  className="cta-email-copy-btn"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check size={18} className="text-green-400" />
+                      <span className="text-green-400">Email Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={18} />
+                      <span>nivrutti.dandekar@gmail.com</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
         </section>
       </main>
