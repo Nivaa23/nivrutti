@@ -265,13 +265,15 @@ nav {
   width: 100%;
   max-width: 1920px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(228, 228, 228, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 1000;
   display: flex;
   align-items: center;
   padding: 0 40px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -315,14 +317,17 @@ nav {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   color: var(--text-primary);
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .nav-email:hover {
-  background: var(--soft-bg);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(71, 70, 229, 0.15);
 }
 
 /* Hero Section */
@@ -690,11 +695,14 @@ nav {
 .filter-pill {
   padding: 10px 24px;
   border-radius: 100px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: white;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  color: var(--text-secondary);
+  font-size: 14px;
 }
 
 .filter-pill:hover,
@@ -702,11 +710,12 @@ nav {
   background: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
+  box-shadow: 0 4px 16px rgba(71, 70, 229, 0.3);
 }
 
 /* Footer Section */
 .footer-cta {
-  background-color: var(--main-bg);
+  background-color: #E4E4E4;
   padding: 160px 0;
   text-align: center;
 }
@@ -714,6 +723,7 @@ nav {
 .footer-cta h2 {
   font-size: 64px;
   margin-bottom: 24px;
+  color: var(--text-primary);
 }
 
 .footer-cta p {
@@ -746,10 +756,10 @@ nav {
 .case-study-hero {
   padding-top: 140px;
   padding-bottom: 80px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   position: relative;
   overflow: hidden;
-  background-color: #FFFFFF;
+  background-color: #E4E4E4;
 }
 
 .cs-hero {

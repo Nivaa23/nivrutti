@@ -144,20 +144,58 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div>
+    <div style={{ background: "#E4E4E4", minHeight: "100vh" }}>
       <Navigation />
 
-      <main className="container" style={{ minHeight: "100vh" }}>
-        <header className="case-study-hero reveal-up" style={{ borderBottom: "none", textAlign: "center", paddingTop: "180px", paddingBottom: "40px" }}>
-          <Link href="/" className="back-btn" style={{ justifyContent: "center", marginBottom: "24px" }}>
+      {/* Page Hero Header */}
+      <section style={{
+        background: "#E4E4E4",
+        paddingTop: "160px",
+        paddingBottom: "80px",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* Subtle grid texture */}
+        <div style={{
+          position: "absolute", inset: 0, opacity: 0.025,
+          backgroundImage: "linear-gradient(#191919 1px, transparent 1px), linear-gradient(90deg, #191919 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          pointerEvents: "none",
+        }} />
+
+        <div className="container reveal-up" style={{ position: "relative", zIndex: 2 }}>
+          <Link href="/" className="back-btn" style={{ justifyContent: "center", marginBottom: "32px" }}>
             <ArrowLeft size={16} /> Back to Portfolio
           </Link>
 
-          <h1 className="hero-title">Innovation Archive</h1>
-          <p className="hero-desc body-large" style={{ maxWidth: "600px", margin: "24px auto 48px" }}>
-            An archive of my work, spanning product design, user research and experimental interfaces.
+          {/* Label */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "8px",
+            padding: "6px 16px", borderRadius: "9999px",
+            background: "rgba(255,255,255,0.7)", border: "1px solid rgba(0,0,0,0.08)",
+            color: "#475569", fontSize: "13px", fontWeight: 500,
+            marginBottom: "24px", backdropFilter: "blur(8px)",
+          }}>
+            ✦ Innovation Archive
+          </div>
+
+          <h1 style={{
+            fontSize: "clamp(48px, 7vw, 80px)", fontWeight: 800,
+            color: "#191919", letterSpacing: "-0.03em", lineHeight: 1.08,
+            marginBottom: "24px",
+          }}>
+            All Projects
+          </h1>
+
+          <p style={{
+            fontSize: "18px", color: "#64748b", maxWidth: "560px",
+            margin: "0 auto 48px", lineHeight: 1.7,
+          }}>
+            A curated archive spanning product design, user research and experimental interfaces.
           </p>
 
+          {/* Filter Pills */}
           <div className="filter-container">
             {categories.map((cat) => (
               <button
@@ -169,63 +207,107 @@ export default function ProjectsPage() {
               </button>
             ))}
           </div>
-        </header>
-
-        <div ref={gridRef} className="all-projects-grid reveal-up">
-          {filteredProjects.map((project, index) => {
-            const spanClass = getBentoClass(index, filteredProjects.length);
-            const caption = projectCaptions[project.id] || project.tagline;
-
-            return (
-              <Link
-                key={project.id}
-                href={`/projects/${project.id}`}
-                className={`project-card ${spanClass}`}
-              >
-                <Image
-                  src={project.thumbnail}
-                  alt={project.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="project-card-image"
-                />
-                <div className="project-card-info">
-                  <h3>{project.name}</h3>
-                  <p className="caption" style={{ color: "rgba(255,255,255,0.8)", marginBottom: "12px", marginTop: "4px" }}>
-                    {caption}
-                  </p>
-                  <div className="project-type-pills">
-                    {project.tags.slice(0, 2).map((tag, tagIndex) => (
-                      <span key={tagIndex} className="type-pill">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
         </div>
+      </section>
 
-        {/* Footer CTA Section */}
-        <section id="contact" className="footer-cta container" style={{ borderTop: "1px solid var(--border-color)", marginTop: "80px" }}>
-          <div className="reveal-up">
-            <h2>Let’s create something amazing together</h2>
-            <p className="body-large">
-              I’m currently available for freelance projects and open to discussing new opportunities.
-              Feel free to reach out if you want to collaborate!
+      {/* Projects Bento Grid */}
+      <section style={{ background: "#E4E4E4", paddingBottom: "120px" }}>
+        <div className="container">
+          <div ref={gridRef} className="all-projects-grid reveal-up">
+            {filteredProjects.map((project, index) => {
+              const spanClass = getBentoClass(index, filteredProjects.length);
+              const caption = projectCaptions[project.id] || project.tagline;
+
+              return (
+                <Link
+                  key={project.id}
+                  href={`/projects/${project.id}`}
+                  className={`project-card ${spanClass}`}
+                >
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="project-card-image"
+                  />
+                  <div className="project-card-info">
+                    <h3>{project.name}</h3>
+                    <p className="caption" style={{ color: "rgba(255,255,255,0.8)", marginBottom: "12px", marginTop: "4px" }}>
+                      {caption}
+                    </p>
+                    <div className="project-type-pills">
+                      {project.tags.slice(0, 2).map((tag, tagIndex) => (
+                        <span key={tagIndex} className="type-pill">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section id="contact" style={{
+        background: "#E4E4E4",
+        padding: "120px 0",
+        borderTop: "1px solid rgba(0,0,0,0.07)",
+        textAlign: "center",
+      }}>
+        <div className="container">
+          <div className="reveal-up" style={{
+            background: "rgba(255,255,255,0.55)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            border: "1px solid rgba(255,255,255,0.8)",
+            borderRadius: "40px",
+            padding: "80px 60px",
+            boxShadow: "0 30px 80px -20px rgba(0,0,0,0.08)",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}>
+            {/* Label */}
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: "8px",
+              padding: "6px 16px", borderRadius: "9999px",
+              background: "rgba(71,70,229,0.08)", border: "1px solid rgba(71,70,229,0.18)",
+              color: "#4746E5", fontSize: "13px", fontWeight: 600,
+              marginBottom: "28px", letterSpacing: "0.08em", textTransform: "uppercase",
+            }}>
+              ✦ Let&apos;s Collaborate
+            </div>
+
+            <h2 style={{
+              fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 800,
+              color: "#191919", letterSpacing: "-0.02em", lineHeight: 1.15,
+              marginBottom: "20px",
+            }}>
+              Let&apos;s create something amazing together
+            </h2>
+
+            <p style={{
+              fontSize: "18px", color: "#64748b", lineHeight: 1.7,
+              marginBottom: "40px", maxWidth: "500px", margin: "0 auto 40px",
+            }}>
+              I&apos;m currently available for freelance projects and open to discussing new opportunities.
             </p>
+
             <a
               href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/"
               className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}
             >
               Say Hello <MessageCircle size={18} />
             </a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
       <Footer />
     </div>

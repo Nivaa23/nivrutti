@@ -88,7 +88,7 @@ export default function ProjectCaseStudyPage({ params }: { params: Promise<{ id:
 
   if (!project) {
     return (
-      <div>
+      <div style={{ background: "#E4E4E4", minHeight: "100vh" }}>
         <Navigation />
         <main className="container" style={{ padding: "180px 0", textAlign: "center", minHeight: "80vh" }}>
           <h1 className="h1">Project Not Found</h1>
@@ -105,13 +105,13 @@ export default function ProjectCaseStudyPage({ params }: { params: Promise<{ id:
   }
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} style={{ background: "#E4E4E4", minHeight: "100vh" }}>
       {/* Custom Cursor */}
       <div ref={cursorRef} className="custom-cursor"></div>
 
       <Navigation />
 
-      <main>
+      <main style={{ background: "#E4E4E4" }}>
         {/* Case Study Hero */}
         <section className="cs-hero" style={{ padding: "180px 0 100px 0" }}>
           <div className="cs-bg" style={{ background: project.gradient }}></div>
@@ -292,21 +292,40 @@ export default function ProjectCaseStudyPage({ params }: { params: Promise<{ id:
         </Link>
 
         {/* Footer CTA Section */}
-        <section id="contact" className="footer-cta container">
-          <div className="reveal-up-sec">
-            <h2>Let’s create something amazing together</h2>
-            <p className="body-large">
-              I’m currently available for freelance projects and open to discussing new opportunities.
-              Feel free to reach out if you want to collaborate!
-            </p>
-            <a
-              href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/"
-              className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Say Hello <MessageCircle size={18} />
-            </a>
+        <section id="contact" style={{
+          background: "#E4E4E4",
+          padding: "120px 0",
+          borderTop: "1px solid rgba(0,0,0,0.07)",
+          textAlign: "center",
+        }}>
+          <div className="container">
+            <div className="reveal-up-sec" style={{
+              background: "rgba(255,255,255,0.55)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: "1px solid rgba(255,255,255,0.8)",
+              borderRadius: "40px",
+              padding: "80px 60px",
+              boxShadow: "0 30px 80px -20px rgba(0,0,0,0.08)",
+              maxWidth: "800px",
+              margin: "0 auto",
+            }}>
+              <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 800, color: "#191919", letterSpacing: "-0.02em", marginBottom: "20px" }}>
+                Let&apos;s create something amazing together
+              </h2>
+              <p className="body-large" style={{ color: "#64748b", maxWidth: "480px", margin: "0 auto 40px" }}>
+                I&apos;m currently available for freelance projects and open to discussing new opportunities.
+              </p>
+              <a
+                href="https://www.linkedin.com/in/nivrutti-dandekar-71638768/"
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}
+              >
+                Say Hello <MessageCircle size={18} />
+              </a>
+            </div>
           </div>
         </section>
       </main>
