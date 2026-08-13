@@ -19,18 +19,16 @@ export default function Navigation() {
 
   const calculateHeight = () => {
     const navEl = navRef.current;
-    if (!navEl) return 284;
+    if (!navEl) return 320;
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    if (isMobile) {
-      const contentEl = navEl.querySelector(".card-nav-content");
-      if (contentEl) {
-        const topBar = 70;
-        const padding = 24;
-        const contentHeight = (contentEl as HTMLElement).scrollHeight;
-        return topBar + contentHeight + padding;
-      }
+    const contentEl = navEl.querySelector(".card-nav-content");
+    if (contentEl) {
+      const topBar = isMobile ? 70 : 80;
+      const padding = isMobile ? 24 : 28;
+      const contentHeight = (contentEl as HTMLElement).scrollHeight;
+      return topBar + contentHeight + padding;
     }
-    return 284;
+    return isMobile ? 284 : 320;
   };
 
   const toggleMenu = () => {
