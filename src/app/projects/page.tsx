@@ -95,7 +95,7 @@ export default function ProjectsPage() {
       onComplete: () => {
         // Change state
         setActiveFilter(filterId);
-        
+
         // NextJS renders new list. Wait a tick to animate fade-in
         setTimeout(() => {
           const newCards = gridRef.current?.querySelectorAll(".project-card");
