@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
@@ -125,6 +125,54 @@ export default function ProjectsPage() {
     if (count === 1) return "p-bento-span-12";
     if (count === 2) return index === 0 ? "p-bento-span-8" : "p-bento-span-4";
     if (count === 3) return index === 0 ? "bento-3-featured" : "bento-3-small";
+    if (count === 4) {
+      const spans = ["p-bento-span-8", "p-bento-span-4", "p-bento-span-4", "p-bento-span-8"];
+      return spans[index];
+    }
+    if (count === 5) {
+      const spans = ["p-bento-span-8", "p-bento-span-4", "p-bento-span-4", "p-bento-span-4", "p-bento-span-4"];
+      return spans[index];
+    }
+    if (count === 6) {
+      const spans = ["p-bento-span-8", "p-bento-span-4", "p-bento-span-4", "p-bento-span-8", "p-bento-span-6", "p-bento-span-6"];
+      return spans[index];
+    }
+    if (count === 7) {
+      const spans = [
+        "p-bento-span-8", "p-bento-span-4",
+        "p-bento-span-4", "p-bento-span-8",
+        "p-bento-span-4", "p-bento-span-4", "p-bento-span-4"
+      ];
+      return spans[index];
+    }
+    if (count === 8) {
+      const spans = [
+        "p-bento-span-8", "p-bento-span-4",
+        "p-bento-span-4", "p-bento-span-8",
+        "p-bento-span-6", "p-bento-span-6",
+        "p-bento-span-8", "p-bento-span-4"
+      ];
+      return spans[index];
+    }
+    if (count === 9) {
+      const spans = [
+        "p-bento-span-8", "p-bento-span-4",
+        "p-bento-span-4", "p-bento-span-8",
+        "p-bento-span-6", "p-bento-span-6",
+        "p-bento-span-4", "p-bento-span-4", "p-bento-span-4"
+      ];
+      return spans[index];
+    }
+    if (count === 10) {
+      const spans = [
+        "p-bento-span-8", "p-bento-span-4",
+        "p-bento-span-4", "p-bento-span-8",
+        "p-bento-span-6", "p-bento-span-6",
+        "p-bento-span-4", "p-bento-span-4", "p-bento-span-4",
+        "p-bento-span-12"
+      ];
+      return spans[index];
+    }
 
     const defaultSpans = [
       "p-bento-span-8",  // Bombay Spices (default index 0)
@@ -233,7 +281,7 @@ export default function ProjectsPage() {
                   />
                   <div className="project-card-info">
                     <h3>{project.name}</h3>
-                    <p className="caption" style={{ color: "rgba(255,255,255,0.8)", marginBottom: "12px", marginTop: "4px" }}>
+                    <p className="caption">
                       {caption}
                     </p>
                     <div className="project-type-pills">
@@ -242,6 +290,9 @@ export default function ProjectsPage() {
                           {tag}
                         </span>
                       ))}
+                    </div>
+                    <div className="card-arrow">
+                      <ArrowUpRight size={16} />
                     </div>
                   </div>
                 </Link>
