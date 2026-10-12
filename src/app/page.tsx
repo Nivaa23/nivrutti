@@ -20,7 +20,6 @@ import {
   Palette,
   Smartphone,
   PenTool,
-  Image as ImageIcon,
   BookOpen,
   Zap,
   Bot,
@@ -42,48 +41,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-// Marquee items config matching the user's specific skills list
-const marqueeItems = [
-  { name: "UI/UX Design", icon: "Layers", gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)" },
-  { name: "User Research & Usability Testing", icon: "Search", gradient: "linear-gradient(135deg, #facc15 0%, #ca8a04 100%)" },
-  { name: "Wireframing & Prototyping", icon: "GitCommit", gradient: "linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)" },
-  { name: "Interaction & Information Architecture", icon: "Network", gradient: "linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)" },
-  { name: "Design Systems & Visual Design", icon: "Palette", gradient: "linear-gradient(135deg, #ec4899 0%, #be185d 100%)" },
-  { name: "Responsive & Mobile-first Design", icon: "Smartphone", gradient: "linear-gradient(135deg, #84cc16 0%, #4d7c0f 100%)" },
-  { name: "Figma", icon: "Layers", gradient: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)" },
-  { name: "Adobe Illustrator", icon: "PenTool", gradient: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)" },
-  { name: "Adobe Photoshop", icon: "Image", gradient: "linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)" },
-  { name: "Notion", icon: "BookOpen", gradient: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)" },
-  { name: "Antigravity", icon: "Zap", gradient: "linear-gradient(135deg, #10b981 0%, #059669 100%)" },
-  { name: "ChatGPT / Gemini", icon: "Bot", gradient: "linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)" },
-  { name: "Lovable", icon: "Heart", gradient: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)" },
-  { name: "Human-Centered Design Thinking", icon: "Compass", gradient: "linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)" },
-  { name: "Accessibility (WCAG AA)", icon: "Eye", gradient: "linear-gradient(135deg, #06b6d4 0%, #0f766e 100%)" },
-  { name: "Motion & Micro-Interactions", icon: "Activity", gradient: "linear-gradient(135deg, #a855f7 0%, #6b21a8 100%)" },
-  { name: "Rapid Prototyping", icon: "FastForward", gradient: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)" }
-];
-
-const getIcon = (iconName: string) => {
-  switch (iconName) {
-    case "Layers": return <Layers className="marquee-card-icon" size={20} />;
-    case "Search": return <Search className="marquee-card-icon" size={20} />;
-    case "GitCommit": return <GitCommit className="marquee-card-icon" size={20} />;
-    case "Network": return <Network className="marquee-card-icon" size={20} />;
-    case "Palette": return <Palette className="marquee-card-icon" size={20} />;
-    case "Smartphone": return <Smartphone className="marquee-card-icon" size={20} />;
-    case "PenTool": return <PenTool className="marquee-card-icon" size={20} />;
-    case "Image": return <ImageIcon className="marquee-card-icon" size={20} />;
-    case "BookOpen": return <BookOpen className="marquee-card-icon" size={20} />;
-    case "Zap": return <Zap className="marquee-card-icon" size={20} />;
-    case "Bot": return <Bot className="marquee-card-icon" size={20} />;
-    case "Heart": return <Heart className="marquee-card-icon" size={20} />;
-    case "Compass": return <Compass className="marquee-card-icon" size={20} />;
-    case "Eye": return <Eye className="marquee-card-icon" size={20} />;
-    case "Activity": return <Activity className="marquee-card-icon" size={20} />;
-    case "FastForward": return <FastForward className="marquee-card-icon" size={20} />;
-    default: return <Zap className="marquee-card-icon" size={20} />;
-  }
-};
 
 export default function HomePage() {
   const pathname = usePathname();
@@ -336,111 +293,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Brand New Mid Section (Vanguard Container + Marquee Scroller) */}
-        <section className="container" style={{ padding: "80px 0" }}>
-          {/* Card Container with Video Background */}
-          <div className="mid-container">
-            <div className="mid-video-layer">
-              <video
-                className="mid-video"
-                autoPlay
-                muted
-                loop
-                playsInline
-                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260505_101331_74f9b798-3f00-4e86-8a01-377aa16ffeaa.mp4"
-              />
-            </div>
-
-            <div className="mid-content-wrapper">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                style={{ position: "relative", zIndex: 10 }}
-              >
-                <h2 className="mid-headline">
-                  Foundation of the
-                  <br />
-                  new digital epoch
-                </h2>
-                <p className="mid-subheadline">
-                  Designing products, powering ecosystems and laying the foundation of a decentralized web for enterprises, builders and communities alike.
-                </p>
-                
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-contact-dark"
-                  onClick={() => {
-                    const el = document.getElementById("contact");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Contact Us
-                </motion.button>
-              </motion.div>
-            </div>
-
-            {/* Floating Bottom Navbar */}
-            <motion.nav 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-              className="floating-bottom-nav"
-            >
-              <div className="circular-nav-logo">✦</div>
-              <button 
-                className="nav-text-btn"
-                onClick={() => {
-                  const el = document.getElementById("projects");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Products
-              </button>
-              <button 
-                className="nav-text-btn"
-                onClick={() => {
-                  const el = document.getElementById("skills");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Docs
-              </button>
-              <button 
-                className="btn-nav-touch"
-                onClick={() => {
-                  const el = document.getElementById("contact");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Get in touch <ChevronRight size={14} />
-              </button>
-            </motion.nav>
-          </div>
-
-          {/* Seamless Infinite Marquee Scroller */}
-          <div className="marquee-wrapper">
-            <div className="marquee-track">
-              {/* Double render to loop seamlessly */}
-              {[...marqueeItems, ...marqueeItems].map((item, index) => (
-                <div key={index} className="marquee-card group">
-                  {/* Absolute gradient overlay on hover */}
-                  <div 
-                    className="marquee-card-gradient" 
-                    style={{ background: item.gradient }}
-                  ></div>
-                  
-                  {/* Render the icon and text */}
-                  {getIcon(item.icon)}
-                  <span className="marquee-card-text">{item.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Redesigned Skills Section */}
         <section id="skills" className="skills-redesign-section">
