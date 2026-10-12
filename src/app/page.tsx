@@ -40,6 +40,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import CardSpread from "@/components/CardSpread";
 
 
 export default function HomePage() {
@@ -310,95 +311,129 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="skills-bento-grid">
-              {/* Card 1 */}
-              <div className="skill-bento-card reveal-up-sec">
-                <div>
-                  <div className="skill-card-icon-badge">
-                    <Palette size={24} />
-                  </div>
-                  <h3 className="skill-card-title">Core Skills</h3>
-                  <span className="skill-card-subtitle">Design &amp; Strategy</span>
-                  <div className="skill-chip-container">
-                    <span className="skill-interactive-chip"><Layers size={14} /> UI/UX Design</span>
-                    <span className="skill-interactive-chip"><Search size={14} /> User Research &amp; Usability</span>
-                    <span className="skill-interactive-chip"><GitCommit size={14} /> Wireframing &amp; Prototyping</span>
-                    <span className="skill-interactive-chip"><Network size={14} /> Interaction Architecture</span>
-                    <span className="skill-interactive-chip"><Palette size={14} /> Design Systems &amp; Visuals</span>
-                    <span className="skill-interactive-chip"><Smartphone size={14} /> Responsive &amp; Mobile-First</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="skill-bento-card reveal-up-sec">
-                <div>
-                  <div className="skill-card-icon-badge" style={{ color: "#a855f7", background: "rgba(168, 85, 247, 0.12)", borderColor: "rgba(168, 85, 247, 0.3)" }}>
-                    <PenTool size={24} />
-                  </div>
-                  <h3 className="skill-card-title">Tools &amp; Software</h3>
-                  <span className="skill-card-subtitle" style={{ color: "#c084fc" }}>My Daily Drivers</span>
-                  <div className="tools-grid-icons">
-                    <div className="tool-brand-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
-                      <span className="tool-brand-name">Figma</span>
-                    </div>
-                    <div className="tool-brand-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
-                      <span className="tool-brand-name">Illustrator</span>
-                    </div>
-                    <div className="tool-brand-item">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
-                      <span className="tool-brand-name">Photoshop</span>
-                    </div>
-                    <div className="tool-brand-item">
-                      <BookOpen size={18} style={{ color: "#818cf8" }} />
-                      <span className="tool-brand-name">Notion</span>
-                    </div>
-                    <div className="tool-brand-item">
-                      <Zap size={18} style={{ color: "#34d399" }} />
-                      <span className="tool-brand-name">Antigravity</span>
-                    </div>
-                    <div className="tool-brand-item">
-                      <Bot size={18} style={{ color: "#fb7185" }} />
-                      <span className="tool-brand-name">Gemini / GPT</span>
-                    </div>
-                    <div className="tool-brand-item" style={{ gridColumn: "span 2" }}>
-                      <Heart size={18} style={{ color: "#c084fc" }} />
-                      <span className="tool-brand-name">Lovable Prototyping</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="skill-bento-card reveal-up-sec">
-                <div>
-                  <div className="skill-card-icon-badge" style={{ color: "#34d399", background: "rgba(52, 211, 153, 0.12)", borderColor: "rgba(52, 211, 153, 0.3)" }}>
-                    <Sparkles size={24} />
-                  </div>
-                  <h3 className="skill-card-title">Additional Strengths</h3>
-                  <span className="skill-card-subtitle" style={{ color: "#34d399" }}>Beyond the Pixels</span>
-                  <div className="strength-list-wrapper">
-                    <div className="strength-item-row">
-                      <Compass size={18} style={{ color: "#34d399" }} />
-                      <span>Human-Centered Design Thinking</span>
-                    </div>
-                    <div className="strength-item-row">
-                      <Eye size={18} style={{ color: "#38bdf8" }} />
-                      <span>Accessibility (WCAG AA)</span>
-                    </div>
-                    <div className="strength-item-row">
-                      <Activity size={18} style={{ color: "#c084fc" }} />
-                      <span>Motion &amp; Micro-Interactions</span>
-                    </div>
-                    <div className="strength-item-row">
-                      <FastForward size={18} style={{ color: "#60a5fa" }} />
-                      <span>Rapid Prototyping &amp; Iteration</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* React Bits Pro Card Spread Component */}
+            <div className="reveal-up-sec" style={{ width: "100%", marginTop: "36px" }}>
+              <CardSpread
+                cardWidth={380}
+                cardHeight={490}
+                cardRadius={28}
+                radius={480}
+                arc={22}
+                lift={36}
+                push={6}
+                pushReach={2}
+                restOpacity={0.92}
+                stiffness={160}
+                damping={17}
+                mass={1.0}
+                stagger={0.06}
+                fit={true}
+                interactive={true}
+                className="skills-card-spread-wrapper"
+                cards={[
+                  {
+                    id: "core-skills",
+                    title: "Core Skills",
+                    content: (
+                      <div className="skill-spread-inner">
+                        <div>
+                          <div className="skill-card-icon-badge">
+                            <Palette size={24} />
+                          </div>
+                          <h3 className="skill-card-title">Core Skills</h3>
+                          <span className="skill-card-subtitle">Design &amp; Strategy</span>
+                          <div className="skill-chip-container">
+                            <span className="skill-interactive-chip"><Layers size={14} /> UI/UX Design</span>
+                            <span className="skill-interactive-chip"><Search size={14} /> User Research &amp; Usability</span>
+                            <span className="skill-interactive-chip"><GitCommit size={14} /> Wireframing &amp; Prototyping</span>
+                            <span className="skill-interactive-chip"><Network size={14} /> Interaction Architecture</span>
+                            <span className="skill-interactive-chip"><Palette size={14} /> Design Systems &amp; Visuals</span>
+                            <span className="skill-interactive-chip"><Smartphone size={14} /> Responsive &amp; Mobile-First</span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  },
+                  {
+                    id: "tools-software",
+                    title: "Tools & Software",
+                    content: (
+                      <div className="skill-spread-inner">
+                        <div>
+                          <div className="skill-card-icon-badge" style={{ color: "#a855f7", background: "rgba(168, 85, 247, 0.12)", borderColor: "rgba(168, 85, 247, 0.3)" }}>
+                            <PenTool size={24} />
+                          </div>
+                          <h3 className="skill-card-title">Tools &amp; Software</h3>
+                          <span className="skill-card-subtitle" style={{ color: "#c084fc" }}>My Daily Drivers</span>
+                          <div className="tools-grid-icons">
+                            <div className="tool-brand-item">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
+                              <span className="tool-brand-name">Figma</span>
+                            </div>
+                            <div className="tool-brand-item">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
+                              <span className="tool-brand-name">Illustrator</span>
+                            </div>
+                            <div className="tool-brand-item">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop" className="tool-brand-icon" style={{ width: "24px", height: "24px", minWidth: "24px", minHeight: "24px", maxWidth: "24px", maxHeight: "24px", objectFit: "contain", flexShrink: 0 }} />
+                              <span className="tool-brand-name">Photoshop</span>
+                            </div>
+                            <div className="tool-brand-item">
+                              <BookOpen size={18} style={{ color: "#818cf8" }} />
+                              <span className="tool-brand-name">Notion</span>
+                            </div>
+                            <div className="tool-brand-item">
+                              <Zap size={18} style={{ color: "#34d399" }} />
+                              <span className="tool-brand-name">Antigravity</span>
+                            </div>
+                            <div className="tool-brand-item">
+                              <Bot size={18} style={{ color: "#fb7185" }} />
+                              <span className="tool-brand-name">Gemini / GPT</span>
+                            </div>
+                            <div className="tool-brand-item" style={{ gridColumn: "span 2" }}>
+                              <Heart size={18} style={{ color: "#c084fc" }} />
+                              <span className="tool-brand-name">Lovable Prototyping</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  },
+                  {
+                    id: "strengths",
+                    title: "Additional Strengths",
+                    content: (
+                      <div className="skill-spread-inner">
+                        <div>
+                          <div className="skill-card-icon-badge" style={{ color: "#34d399", background: "rgba(52, 211, 153, 0.12)", borderColor: "rgba(52, 211, 153, 0.3)" }}>
+                            <Sparkles size={24} />
+                          </div>
+                          <h3 className="skill-card-title">Additional Strengths</h3>
+                          <span className="skill-card-subtitle" style={{ color: "#34d399" }}>Beyond the Pixels</span>
+                          <div className="strength-list-wrapper">
+                            <div className="strength-item-row">
+                              <Compass size={18} style={{ color: "#34d399" }} />
+                              <span>Human-Centered Design Thinking</span>
+                            </div>
+                            <div className="strength-item-row">
+                              <Eye size={18} style={{ color: "#38bdf8" }} />
+                              <span>Accessibility (WCAG AA)</span>
+                            </div>
+                            <div className="strength-item-row">
+                              <Activity size={18} style={{ color: "#c084fc" }} />
+                              <span>Motion &amp; Micro-Interactions</span>
+                            </div>
+                            <div className="strength-item-row">
+                              <FastForward size={18} style={{ color: "#60a5fa" }} />
+                              <span>Rapid Prototyping &amp; Iteration</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  }
+                ]}
+              />
             </div>
           </div>
         </section>
